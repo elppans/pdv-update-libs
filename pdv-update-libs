@@ -1,0 +1,13 @@
+# Descriptografar uma palavra
+ukey="$(echo "$(cat /usr/local/.pdv_key/.ufile)" | openssl enc -d -aes-256-cbc -base64 -pass pass:"$(cat /usr/local/.pdv_key/.kfile)")"
+pwkey="$(echo "$(cat /usr/local/.pdv_key/.pfile)" | openssl enc -d -aes-256-cbc -base64 -pass pass:"$(cat /usr/local/.pdv_key/.kfile)")"
+
+
+# Atualizar bibliotecas 64 bits via wget
+
+echo "A atualizar diretório lib_u64"
+sleep 2
+mkdir -p /Zanthus/Zeus/lib_u64
+wget --no-check-certificate --user "$ukey" --password="$pwkey" -c ftp://ftp.zanthus.com.br:2142/pub/Zeus_Frente_de_Loja/_Complementares/so_u64/* -P /Zanthus/Zeus/lib_u64
+
+ldconfig
