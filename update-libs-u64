@@ -10,7 +10,7 @@ wc1="$(ls -1 /Zanthus/Zeus/lib_u64 | wc -l)"
 mkdir -p /Zanthus/Zeus/lib_u64
 wget --no-check-certificate --user "$ukey" --password="$pwkey" -c ftp://ftp.zanthus.com.br:2142/pub/Zeus_Frente_de_Loja/_Complementares/so_u64/* -P /Zanthus/Zeus/lib_u64
 wc2="$(ls -1 /Zanthus/Zeus/lib_u64 | wc -l)"
-wc3="$(expr $wc1 - $wc2)"
+wc3="$(expr $wc2 - $wc1)"
 ldconfig
 
-echo -e "$wc1 $wc2 $wc3"
+echo -e "PRE $wc1 POS $wc2 RES $wc3"
